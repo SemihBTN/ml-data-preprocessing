@@ -49,3 +49,27 @@ Test setini kasaya kilitle (asla dokunma).
 Sadece Train setine SMOTE/Encoding uygula.
 
 Modeli eğit ve en son kilitli Test setiyle sına.
+
+### Yeniden Örnekleme (Resampling) Öncesi ve Sonrası
+
+**1. Dengesiz Veri Problemi (Sorun)**
+
+![Orijinal Dengesiz Veri](2.png)
+> *Yukarıdaki grafikte mor noktalar (çoğunluk) uzayı domine ederken, sarı noktalar (azınlık) çok seyrek kalmış. Model bu haliyle eğitilirse kolaya kaçıp azınlığı görmezden gelebilir.*
+
+**2. SMOTE ile Sentetik Veri Üretimi (Çözüm)**
+
+![SMOTE Sonrası Dengeli Veri](SMOTE%20.png)
+> *SMOTE algoritması mevcut sarı noktalar arasına hayali çizgiler çekerek sentetik veriler üretti ve veri setini modelin öğrenebileceği şekilde dengeledi.*
+
+
+### Kategorik Veri Kodlama (Encoding) Karşılaştırması
+
+![Encoding Karşılaştırması](Encoding%20Diff.png)
+
+> **Görselin Yorumlanması:**
+> * **Orijinal Veri (Sol):** Makinenin işleyemeyeceği ham metin formatı.
+> * **Label Encoding (Orta):** Değerleri 1 ve 0'a dönüştürür.
+> * **One-Hot Encoding (Sağ):** En güvenli yöntemdir. Kategori için yeni bir sütun açıp True/False mantığıyla ikili sisteme döker, böylece modele sahte bir matematiksel hiyerarşi dayatmamış olur.
+
+
